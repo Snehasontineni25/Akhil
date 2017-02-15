@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,700,800' rel='stylesheet' type='text/css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="bootstrap.css" rel="stylesheet">
+<link href="donation.css" rel="stylesheet">
+</head>
+<body class="main-holder">
+<div class="container">
+<div class="modal fade" id="saveModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Saved</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="friendsModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>"Yay, I donated!" on Facebook and Twitter.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row" id="donation_header_row">
+ <div class="row" id="donation_child_row">
+<div class="speech-bubble">
+  <div class="arrow bottom right" ></div>
+  <span id="amount"> $ <span id="added_value"> 600 </span> needed for this project</span>
+</div>
+</div>
+<div class="row" id="progress_detail_row">
+<div class="progress" id="progress_row">
+  <div class="progress-bar" id="progress_bar_row" role="progressbar" aria-valuenow="40"
+  aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+</div>
+<div class="row" id="detail_row">
+<div class="row" id="funds_msg">
+<span style="color:#F15E33;">Only 3 days left</span>
+<span style="color:#838383;">to fund this project.</span>
+</div>
+<div class="row" id="donors_msg">
+Join the <strong> 40 </strong> other donors who have <br>
+already supported this project.Every <br>
+dollar helps.
+</div>
+<div class="row" id="buttons_row">
+<div class="col-xs-6 col-lg-6" style="padding-left:0px;"><button type="button" class="money_btn" id="amount_button">$ &nbsp;&nbsp;<span style="color:#333;">200</span></button></div>
+<div class="col-xs-6 col-lg-6" style="padding-right:0px;"><button type="button" class="money_btn" id="give_now_button" onclick="give_now_handler();">Give Now</button></div>
+</div>
+<div class="row" id="why_give_msg">Why give $ 200 ?</div>
+</div>
+</div>
+<div class="row" id="bottom_buttons_row">
+<div class="col-xs-6 col-lg-6" style="padding-left:0px;"><button type="button" class="bottom_btn" id="save_button" data-toggle="modal" data-target="#saveModal">Save for later</button></div>
+<div class="col-xs-6 col-lg-6" style="padding-right:0px;"><button type="button" class="bottom_btn" id="friends_button" data-toggle="modal" data-target="#friendsModal">Tell your friends</button></div>
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script type="text/javascript">
+var money_value = 200;
+var i=0;
+function give_now_handler()
+{
+  if (i > 2) 
+  {
+  	  return false;
+  }
+  var added_value = $('#added_value').html().trim();
+  added_value = parseInt(added_value) - parseInt(200);
+  if (i == 0) 
+  {
+  	  $('#progress_bar_row').css('width', '60%');
+  }
+  else if (i == 1) 
+  {
+  	  $('#progress_bar_row').css('width', '80%');
+  }
+  else 
+  {
+  	  $('#progress_bar_row').css('width', '100%');
+  }
+  $('#added_value').html(' ');
+  $('#added_value').html(added_value);
+  i++;
+} // give now handler fnctn endng
+</script>
+</body>
+</html>
